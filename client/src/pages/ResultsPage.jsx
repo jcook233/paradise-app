@@ -29,7 +29,7 @@ export default function ResultsPage() {
     <>
         <h1>Your Paradise is..</h1>
         <h2>{fetchData(getStateObject).statename}</h2>
-        <p className="score">{fetchData(getStateObject).paradisescore}</p>
+        <p className="score">{fetchData(getStateObject).score2}</p>
         <hr>
         </hr>
         <p>description here</p>

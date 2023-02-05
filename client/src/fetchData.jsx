@@ -1279,7 +1279,6 @@ function compare( a, b ) {
 //imitates an API call using fetch
 function fetchData(params) {
     let states = json.fetchparadise3Response.Results["Result 1"]["Row"].length;
-    console.log(states)
     let newJson = json.fetchparadise3Response.Results["Result 1"]["Row"];
 
     let g = params
@@ -1291,7 +1290,8 @@ function fetchData(params) {
          + (jsonObj.propcrimescore*g.safety) + (jsonObj.violentscore*g.safety) + jsonObj.studentteacherscore * g.education
          + jsonObj.injscore*g.environment + jsonObj.publicschoolscore*g.education + jsonObj.prvschoolscore*g.education
 
-        newJson[i].paradisescore = score;
+        newJson[i].score2 = score
+        newJson[i].paradisescore = score / json.fetchparadise3Response.Results["Result 1"]["Row"][i].paradisescore
         newJson[i].statename= newJson[i].statename.trimEnd();
     }
 
