@@ -69,7 +69,7 @@ const RatingBar = ({categoryName, barKey, startingValue}) => {
             padding: 15,
             color: "black",
             cursor: "pointer",
-            border: "1px solid black",
+            border: "2px solid white",
             fontWeight: [getFontWeight(rating)]
           }}
           onClick={() => handleClick(rating)}

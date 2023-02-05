@@ -32,8 +32,8 @@ export default function ResultsPage() {
         <p className="score">{fetchData(getStateObject).paradisescore}</p>
         <hr>
         </hr>
-        <p>description here </p>
-        <Link className="btn1" to="/" > Try Again </Link> 
+        <p>description here</p>
+        <Link className="btn1" to="/" >Try Again</Link> 
     </>
     );
 }

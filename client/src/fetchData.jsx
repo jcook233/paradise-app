@@ -1296,11 +1296,9 @@ function compare( a, b ) {
     return 0;
   }
 
+//imitates an API call using fetch
 function fetchData(params) {
-
-
     let states = json.fetchparadise3Response.Results["Result 1"]["Row"].length;
-
     let newJson = json.fetchparadise3Response.Results["Result 1"]["Row"];
 
     let g = params
@@ -1316,7 +1314,6 @@ function fetchData(params) {
     }
 
     newJson.sort(compare)
-
 
     const obj = newJson[0];
     return obj;

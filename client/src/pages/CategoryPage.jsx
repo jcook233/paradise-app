@@ -13,7 +13,7 @@ export default function CategoryPage() {
 return (
   <>
    <h1>Which of these categories are important to you?</h1>
-    <p>This is your awesome subtitle</p>
+    <p>This is an awesome subtitle</p>
 
     <Category categoryName="Health" barKey={0} startingValue={getStateObject.health}/>
     <Category categoryName="Education" barKey={1}  startingValue={getStateObject.education}/>
