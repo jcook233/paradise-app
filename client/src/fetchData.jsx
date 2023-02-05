@@ -681,31 +681,6 @@ const json = {
                         "fatscore": 30
                     },
                     {
-                        "paradisescore": 205,
-                        "state": "DC",
-                        "statename": "District of Columbia",
-                        "pubcnt": "248",
-                        "prvcnt": "44",
-                        "avestratio": 11.8,
-                        "studentteacherscore": 45,
-                        "prvschoolscore": 4,
-                        "publicschoolscore": 6,
-                        "violentcomprat": 0.6371,
-                        "propcomprat": 2.6956,
-                        "violentscore": 1,
-                        "propcrimescore": 1,
-                        "sumcum": -33.28,
-                        "maxcum": -19.77,
-                        "mincum": -44,
-                        "mortalityscore": 50,
-                        "evtsum": 17,
-                        "injsum": 8,
-                        "fatsum": 3,
-                        "evtscore": 15,
-                        "injscore": 43,
-                        "fatscore": 40
-                    },
-                    {
                         "paradisescore": 201,
                         "state": "MI",
                         "statename": "Michigan            ",
@@ -1313,8 +1288,8 @@ function fetchData(params) {
     for (let i = 0; i < states; i++) {
         
         let jsonObj = json.fetchparadise3Response.Results["Result 1"]["Row"][i];
-        let score = jsonObj.evtscore * g.environment + jsonObj.fatscore * g.environment + jsonObj.mortalityscore*g.health
-         + jsonObj.propcrimescore*g.safety + jsonObj.violentscore*g.safety 
+        let score = jsonObj.evtscore * g.environment + jsonObj.fatscore* g.environment + jsonObj.mortalityscore*g.health*2
+         + jsonObj.propcrimescore*g.safety + jsonObj.violentscore*g.safety
          + jsonObj.injscore*g.environment + jsonObj.publicschoolscore*g.education + jsonObj.prvschoolscore*g.education
 
         newJson[i].paradisescore = score;

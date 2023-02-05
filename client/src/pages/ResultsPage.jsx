@@ -35,7 +35,7 @@ export default function ResultsPage() {
         <p>description here</p>
         <a href={fetchData(getStateObject).city!==undefined ? 
             fetchData(getStateObject).vrlink : "https://hubs.mozilla.com/LegVjmz/smart-scientific-dominion"
-        }>View in VR</a>
+        }>View in VR</a><br></br><br></br>
 
         <Link className="btn1" to="/" >Try Again</Link> 
     </>
