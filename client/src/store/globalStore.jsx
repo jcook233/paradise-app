@@ -4,7 +4,6 @@ import {persist} from "zustand/middleware"
 
 // global stored state
 
-
 let store = (set, get) => ({
     safety: 0,
     education: 0,

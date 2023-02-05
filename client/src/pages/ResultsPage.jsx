@@ -3,7 +3,20 @@ import { Link } from 'react-router-dom';
 
 export default function ResultsPage() {
 
-    
+    /*
+
+    const getImageByLocation = async (location) => {
+        // Call a third-party API that provides image URLs for a given location
+        const response = await fetch(`https://api.example.com/images?location=${location}`);
+        const data = await response.json();
+  
+        // Return the URL of the image
+        return data.imageUrl;
+    }
+
+
+
+    */
 
 
     return (
