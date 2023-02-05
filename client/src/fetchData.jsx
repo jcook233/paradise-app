@@ -1286,6 +1286,13 @@ const json = {
     }
 };
 
+const VRRooms = {
+    "Georgia": ["Atlanta","https://hubs.mozilla.com/LegVjmz/smart-scientific-dominion"],
+    "California": ["LA", "https://hubs.mozilla.com/zBMziJA/teeming-rapid-safari"],
+    "Florida": ["Miami", "https://hubs.mozilla.com/Dr3tuZY/quirky-pristine-soiree" ],
+    "Texas": ["Dallas", "https://hubs.mozilla.com/aDjSX6R/productive-grandiose-place"]
+}
+
 function compare( a, b ) {
     if ( a.paradisescore < b.paradisescore ){
       return -1;
@@ -1311,11 +1318,18 @@ function fetchData(params) {
          + jsonObj.injscore*g.environment + jsonObj.publicschoolscore*g.education + jsonObj.prvschoolscore*g.education
 
         newJson[i].paradisescore = score;
+        newJson[i].statename= newJson[i].statename.trimEnd();
     }
 
     newJson.sort(compare)
 
     const obj = newJson[0];
+
+    if (VRRooms[obj.statename]!=null) {
+        obj.vrlink = VRRooms[obj.statename][1];
+        obj.city = VRRooms[obj.statename][0];
+    }
+
     return obj;
 }
 
