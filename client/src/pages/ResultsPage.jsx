@@ -3,8 +3,11 @@ import { Link } from 'react-router-dom';
 import {useGlobalStore} from "../store/globalStore"
 import fetchData  from"../fetchData"
 
+
+
 export default function ResultsPage() {
-    const [obj, setObj] = useState(fetchData(null));
+    const getStateObject = useGlobalStore((state) => state)
+
 
     /*
 
@@ -24,11 +27,13 @@ export default function ResultsPage() {
 
     return (
     <>
-        <h1>Your Paradise is</h1>
-        <h2>{obj.statename ? obj.statename.trim() + " " + [<div className="score">obj.paradisescore</div>] : "loading.."}</h2>
+        <h1>Your Paradise is..</h1>
+        <h2>{fetchData(getStateObject).statename}</h2>
+        <p className="score">{fetchData(getStateObject).paradisescore}</p>
         <hr>
         </hr>
         <p>description here </p>
+        <Link className="btn1" to="/" > Try Again </Link> 
     </>
     );
 }

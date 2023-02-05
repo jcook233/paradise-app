@@ -1,6 +1,4 @@
-
-
-const json = {
+{
     "fetchparadise3Response": {
         "Results": {
             "Result 1": {
@@ -1284,42 +1282,4 @@ const json = {
             }
         }
     }
-};
-
-function compare( a, b ) {
-    if ( a.paradisescore < b.paradisescore ){
-      return -1;
-    }
-    if ( a.paradisescore > b.paradisescore ){
-      return 1;
-    }
-    return 0;
-  }
-
-function fetchData(params) {
-
-
-    let states = json.fetchparadise3Response.Results["Result 1"]["Row"].length;
-
-    let newJson = json.fetchparadise3Response.Results["Result 1"]["Row"];
-
-    let g = params
-
-    for (let i = 0; i < states; i++) {
-        
-        let jsonObj = json.fetchparadise3Response.Results["Result 1"]["Row"][i];
-        let score = jsonObj.evtscore * g.environment + jsonObj.fatscore * g.environment + jsonObj.mortalityscore*g.health
-         + jsonObj.propcrimescore*g.safety + jsonObj.violentscore*g.safety 
-         + jsonObj.injscore*g.environment + jsonObj.publicschoolscore*g.education + jsonObj.prvschoolscore*g.education
-
-        newJson[i].paradisescore = score;
-    }
-
-    newJson.sort(compare)
-
-
-    const obj = newJson[0];
-    return obj;
 }
-
-export default fetchData;
