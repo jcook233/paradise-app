@@ -44,7 +44,7 @@ const RatingBar = ({categoryName, barKey, startingValue}) => {
     if (rating > value) {
       return 'white';
     } else {
-      var p = value/5;
+      var p = value/10;
       return rgbToHex(255 - (255*p), 255*p,0);
     }
   }
@@ -59,7 +59,7 @@ const RatingBar = ({categoryName, barKey, startingValue}) => {
 
   return (
     <div order={barKey} className="no-borderRadiusImportant border-radiusImportant">
-      {[1, 2, 3, 4, 5].map((rating) => (
+      {[1, 2, 3, 4, 5,6,7,8,9,10].map((rating) => (
         <div
 
           key={rating}
