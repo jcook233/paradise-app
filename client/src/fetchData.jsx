@@ -1,5 +1,3 @@
-
-
 const json = {
     "fetchparadise3Response": {
         "Results": {
@@ -1269,10 +1267,10 @@ const VRRooms = {
 }
 
 function compare( a, b ) {
-    if ( a.paradisescore < b.paradisescore ){
+    if ( a.paradisescore > b.paradisescore ){
       return -1;
     }
-    if ( a.paradisescore > b.paradisescore ){
+    if ( a.paradisescore < b.paradisescore ){
       return 1;
     }
     return 0;
@@ -1281,6 +1279,7 @@ function compare( a, b ) {
 //imitates an API call using fetch
 function fetchData(params) {
     let states = json.fetchparadise3Response.Results["Result 1"]["Row"].length;
+    console.log(states)
     let newJson = json.fetchparadise3Response.Results["Result 1"]["Row"];
 
     let g = params
@@ -1288,8 +1287,8 @@ function fetchData(params) {
     for (let i = 0; i < states; i++) {
         
         let jsonObj = json.fetchparadise3Response.Results["Result 1"]["Row"][i];
-        let score = jsonObj.evtscore * g.environment + jsonObj.fatscore* g.environment + jsonObj.mortalityscore*g.health*2
-         + jsonObj.propcrimescore*g.safety + jsonObj.violentscore*g.safety
+        let score = (jsonObj.evtscore * g.environment) + (jsonObj.fatscore* g.environment) + (jsonObj.mortalityscore*g.health)
+         + (jsonObj.propcrimescore*g.safety) + (jsonObj.violentscore*g.safety) + jsonObj.studentteacherscore * g.education
          + jsonObj.injscore*g.environment + jsonObj.publicschoolscore*g.education + jsonObj.prvschoolscore*g.education
 
         newJson[i].paradisescore = score;
